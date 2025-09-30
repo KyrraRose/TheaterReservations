@@ -10,8 +10,10 @@ public class TheaterReservations {
         Scanner mrMcScans=new Scanner(System.in);
 
         //Welcome!
-        System.out.print("~ Welcome to Xanathar's Theater! ~\nPlease enter your full name: ");
+        System.out.print("~ Welcome to Xanathar's Theater! ~\nPlease enter your first and last name: ");
         String name = mrMcScans.nextLine();
+        //Name format
+        String[] firstLast = name.split(" ");
 
         //Date get
         System.out.print("What is the date of the show (MM/DD/YY)?: ");
@@ -25,7 +27,11 @@ public class TheaterReservations {
         int numTickets = Integer.parseInt(tickets);
 
         if (numTickets == 1){
-            System.out.println("1 ticket reserved for %");
+            System.out.printf("1 ticket reserved for %s under the name %s, %s.\nEnjoy the show, %s!",showDate,firstLast[1],firstLast[0],firstLast[0]);
+        }else if (numTickets > 1){
+            System.out.printf("%s tickets reserved for %s under the name %s, %s.\nEnjoy the show, %s!",tickets,showDate,firstLast[1],firstLast[0],firstLast[0]);
+        }else{
+            System.out.println("No tickets have been reserved. Xanathar the beholder commands you try again!");
         }
     }
 
